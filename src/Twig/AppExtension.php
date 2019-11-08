@@ -32,12 +32,15 @@ class AppExtension extends AbstractExtension
     {
         $key = sprintf('user_activity_text_'.$user->getId());
 
-        return $this->cache->get($key, function(CacheItemInterface $item) {
+        return $this->cache->get($key, function(CacheItemInterface $item) use ($user) {
             $item->expiresAfter(3600);
 
-            
+            return $this->calculateUserActivityText($user);
         });
+    }
 
+    private function calculateUserActivityText(User $user): string
+    {
         $commentCount = $this->commentHelper->countRecentCommentsForUser($user);
 
         if ($commentCount > 50) {
