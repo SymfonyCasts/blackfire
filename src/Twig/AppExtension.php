@@ -26,6 +26,11 @@ class AppExtension extends AbstractExtension
 
     public function getUserActivityText(User $user): string
     {
+        return $this->calculateUserActivityText($user);
+    }
+
+    private function calculateUserActivityText(User $user): string
+    {
         $commentCount = $this->commentHelper->countRecentCommentsForUser($user);
 
         if ($commentCount > 50) {
