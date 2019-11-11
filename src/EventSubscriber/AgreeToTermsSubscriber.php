@@ -36,6 +36,8 @@ class AgreeToTermsSubscriber implements EventSubscriberInterface
             return;
         }
 
+        sleep(1);
+
         // in reality, you would hardcode the most recent "terms" date
         // change so you can see if the user needs to "re-agree". I've
         // set it dynamically to 1 year ago to avoid anyone hitting
