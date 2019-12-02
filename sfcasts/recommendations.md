@@ -1,7 +1,7 @@
 # Recommendations
 
 Head back to the Blackfire dashboard... and click into the latest profile - the
-one with our COUNT query improvement - http://bit.ly/sfcast-bf-profile2.
+one with our COUNT query improvement - https://bit.ly/sfcast-bf-profile2.
 
 The critical path is now much less clear... there are kind of two critical paths...
 but neither end in a node with a red background... which would indicate an
@@ -29,10 +29,13 @@ production. That extra noise makes finding the *true* performance issues harder.
 
 So, let's switch our app to the `prod` environment while profiling.
 
-Open up `.env`, find the `APP_ENV` variable, and change it to `prod`. That will
-make things more realistic... but it also means that after... pretty much *any*
-change to our code, we will need to clear & warm the cache. No big deal: at your
-terminal, run:
+Open up `.env`, find the `APP_ENV` variable, and change it to `prod`:
+
+[[[ code('4bef8cd1b5') ]]]
+
+That will make things more realistic... but it also means that after... pretty
+much *any* change to our code, we will need to clear & warm the cache. No big deal:
+at your terminal, run:
 
 ```terminal
 php bin/console cache:clear
@@ -47,7 +50,7 @@ php bin/console cache:warmup
 Ok, let's profile again! I'll refresh... just to make sure the page is
 working and... profile! I'll call this one `[Recording] Show page in prod mode`.
 Cool! 106 milliseconds is a huge improvement! Click to open the call graph:
-http://bit.ly/sf-bf-profile3
+https://bit.ly/sf-bf-profile3
 
 *Now* the function list and the call graph look a bit more useful. There's no
 *super* problematic, red-background node on the graph... but the function that
@@ -57,7 +60,7 @@ sense: that's executing database queries.
 ## Hello Recommendations
 
 ***TIP
-Recommendations require a "Profiler" plan level or higher.
+The Recommendations information requires a "Profiler" plan level or higher.
 ***
 
 Back on our site, you *may* have noticed that each time we've profiled, a little
@@ -109,7 +112,7 @@ composer dump-autoload --optimize
 
 Perfect! Refresh the page... it works... and create another profile - I'll
 call this: `[Recording] Show page after optimized autoloader`. Click to view
-the call graph: http://bit.ly/sf-bf-profile4 and close the old one.
+the call graph: https://bit.ly/sf-bf-profile4 and close the old one.
 
 It's not *significantly* faster, but we've removed at least one heavy-looking
 function call from our list. That will help us focus on any *real* problems.
