@@ -30,6 +30,7 @@ class MainController extends AbstractController
         ]);
 
         $probe->disable();
+        $probe->close(); // optional - will auto-close at end of script
 
         return $response;
     }
