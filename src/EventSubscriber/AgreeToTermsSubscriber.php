@@ -4,25 +4,27 @@ namespace App\EventSubscriber;
 
 use App\Entity\User;
 use App\Form\AgreeToUpdatedTermsFormType;
-use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\Security\Core\Security;
-use Symfony\Contracts\Service\ServiceSubscriberInterface;
 use Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface;
 use Twig\Environment;
 
-class AgreeToTermsSubscriber implements EventSubscriberInterface, ServiceSubscriberInterface
+class AgreeToTermsSubscriber implements EventSubscriberInterface
 {
     private $security;
-    private $container;
+    private $formFactory;
+    private $twig;
+    private $entrypointLookup;
 
-    public function __construct(Security $security, ContainerInterface $container)
+    public function __construct(Security $security, FormFactoryInterface $formFactory, Environment $twig, EntrypointLookupInterface $entrypointLookup)
     {
         $this->security = $security;
-        $this->container = $container;
+        $this->formFactory = $formFactory;
+        $this->twig = $twig;
+        $this->entrypointLookup = $entrypointLookup;
     }
 
     public function onRequestEvent(RequestEvent $event)
@@ -46,16 +48,16 @@ class AgreeToTermsSubscriber implements EventSubscriberInterface, ServiceSubscri
             return;
         }
 
-        $form = $this->container->get(FormFactoryInterface::class)->create(AgreeToUpdatedTermsFormType::class);
+        $form = $this->formFactory->create(AgreeToUpdatedTermsFormType::class);
 
-        $html = $this->container->get(Environment::class)->render('main/agreeUpdatedTerms.html.twig', [
+        $html = $this->twig->render('main/agreeUpdatedTerms.html.twig', [
             'form' => $form->createView()
         ]);
         // resets Encore assets so they render correctly later
         // only technically needed here because we should really
         // "exit" this function before rendering the template if
         // we know the user doesn't need to see the form!
-        $this->container->get(EntrypointLookupInterface::class)->reset();
+        $this->entrypointLookup->reset();
 
         $response = new Response($html);
         $event->setResponse($response);
@@ -65,15 +67,6 @@ class AgreeToTermsSubscriber implements EventSubscriberInterface, ServiceSubscri
     {
         return [
             RequestEvent::class => 'onRequestEvent',
-        ];
-    }
-
-    public static function getSubscribedServices()
-    {
-        return [
-            FormFactoryInterface::class,
-            Environment::class,
-            EntrypointLookupInterface::class,
         ];
     }
 }
