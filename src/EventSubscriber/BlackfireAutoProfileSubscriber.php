@@ -17,6 +17,10 @@ class BlackfireAutoProfileSubscriber implements EventSubscriberInterface
 
     public function onRequestEvent(RequestEvent $event)
     {
+        if (!$event->isMasterRequest()) {
+            return;
+        }
+
         // replace with some conditional logic
         $request = $event->getRequest();
         $shouldProfile = $request->getPathInfo() === '/api/github-organization';
