@@ -67,10 +67,6 @@ class MainController extends AbstractController
         $organization = $apiHelper->getOrganizationInfo($organizationName);
         $repositories = $apiHelper->getOrganizationRepositories($organizationName);
 
-        if (isset($probe)) {
-            $probe->close();
-        }
-
         return $this->json([
             'organization' => $organization,
             'repositories' => $repositories,
