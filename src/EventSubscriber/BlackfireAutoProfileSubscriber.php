@@ -3,10 +3,8 @@
 namespace App\EventSubscriber;
 
 use Blackfire\Client;
-use Blackfire\Probe;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
-use Symfony\Component\HttpKernel\Event\TerminateEvent;
 
 class BlackfireAutoProfileSubscriber implements EventSubscriberInterface
 {
