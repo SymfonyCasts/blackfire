@@ -10,11 +10,6 @@ use Symfony\Component\HttpKernel\Event\TerminateEvent;
 
 class BlackfireAutoProfileSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var Probe|null
-     */
-    private $probe;
-
     public function onRequestEvent(RequestEvent $event)
     {
         if (!$event->isMasterRequest()) {
@@ -27,14 +22,7 @@ class BlackfireAutoProfileSubscriber implements EventSubscriberInterface
 
         if ($shouldProfile) {
             $blackfire = new Client();
-            $this->probe = $blackfire->createProbe();
-        }
-    }
-
-    public function onTerminateEvent(TerminateEvent $event)
-    {
-        if ($this->probe) {
-            $this->probe->close();
+            $probe = $blackfire->createProbe();
         }
     }
 
@@ -42,7 +30,6 @@ class BlackfireAutoProfileSubscriber implements EventSubscriberInterface
     {
         return [
             RequestEvent::class => 'onRequestEvent',
-            TerminateEvent::class => 'onTerminateEvent',
         ];
     }
 }
