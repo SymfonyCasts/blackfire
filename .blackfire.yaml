@@ -1,0 +1,5 @@
+"tests":
+    "HTTP Requests should be limited to 1 per page":
+        path: "/.*"
+        assertions:
+            - "metrics.http.requests.count <= 1"
