@@ -9,7 +9,7 @@ scenario
     visit url("/")
         name "Homepage"
         expect status_code() == 200
-        expect css("tbody.js-sightings-list tr").count() > 500
+        expect css("tbody.js-sightings-list tr").count() > 10
 
     click link("Log In")
         name "Login page"
