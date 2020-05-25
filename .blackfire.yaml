@@ -15,6 +15,7 @@ scenarios: |
             expect status_code() == 200
             expect css("tbody.js-sightings-list tr").count() > 10
             assert metrics.sql.queries.count < 30
+            assert main.wall_time < 100ms
 
         click link("Log In")
             name "Log in page"
