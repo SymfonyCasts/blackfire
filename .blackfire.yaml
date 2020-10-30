@@ -14,7 +14,6 @@ scenarios: |
             name "Homepage"
             expect status_code() == 200
             expect css("tbody.js-sightings-list tr").count() > 10
-            # won't work until we're using Blackfire environment
             assert metrics.sql.queries.count < 30
 
         click link("Log In")
