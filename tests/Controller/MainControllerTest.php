@@ -21,6 +21,10 @@ class MainControllerTest extends WebTestCase
         $this->assertArrayHasKey('organization', $data);
     }
 
+    /**
+     * @group blackfire
+     * @requires extension blackfire
+     */
     public function testGetGitHubOrganizationBlackfireHttpRequests()
     {
         $client = static::createClient();
