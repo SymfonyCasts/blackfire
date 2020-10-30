@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index 7519706..1130455 100644
+index 65fae50..fe213db 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -5,6 +5,7 @@
@@ -8,18 +8,15 @@ index 7519706..1130455 100644
          "ext-iconv": "*",
 +        "blackfire/php-sdk": "^1.20",
          "composer/package-versions-deprecated": "^1.11",
-         "sensio/framework-extra-bundle": "^5.4",
-         "symfony/console": "4.3.*",
+         "doctrine/doctrine-bundle": "^2.0",
+         "doctrine/doctrine-migrations-bundle": "^2.0",
 diff --git a/composer.lock b/composer.lock
-index a08121d..ff05bc9 100644
+index 5eabdb4..d6323bf 100644
 --- a/composer.lock
 +++ b/composer.lock
-@@ -4,8 +4,145 @@
-         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
-         "This file is @generated automatically"
+@@ -6,6 +6,143 @@
      ],
--    "content-hash": "0d5cee3803219f1246f5b00b95e71ea0",
-+    "content-hash": "76e41e6bf1b27db2c5e036b5fea394c7",
+     "content-hash": "d57edc7e79608b8b1499c5d570887420",
      "packages": [
 +        {
 +            "name": "blackfire/php-sdk",
@@ -162,7 +159,7 @@ index a08121d..ff05bc9 100644
              "name": "composer/package-versions-deprecated",
              "version": "1.11.99",
 diff --git a/symfony.lock b/symfony.lock
-index 8c9f13d..e7d8321 100644
+index f2cc78f..a6aed12 100644
 --- a/symfony.lock
 +++ b/symfony.lock
 @@ -1,4 +1,10 @@

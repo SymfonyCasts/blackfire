@@ -1,5 +1,5 @@
 diff --git a/src/Repository/BigFootSightingRepository.php b/src/Repository/BigFootSightingRepository.php
-index d0a075a..7aa4416 100644
+index 6bb8be4..6b1ba14 100644
 --- a/src/Repository/BigFootSightingRepository.php
 +++ b/src/Repository/BigFootSightingRepository.php
 @@ -23,6 +23,8 @@ class BigFootSightingRepository extends ServiceEntityRepository
