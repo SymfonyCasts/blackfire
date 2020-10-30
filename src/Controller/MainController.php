@@ -21,18 +21,11 @@ class MainController extends AbstractController
      */
     public function homepage(BigFootSightingRepository $bigFootSightingRepository)
     {
-        $probe = \BlackfireProbe::getMainInstance();
-        $probe->enable();
         $sightings = $this->createSightingsPaginator(1, $bigFootSightingRepository);
 
-        $response = $this->render('main/homepage.html.twig', [
+        return $this->render('main/homepage.html.twig', [
             'sightings' => $sightings
         ]);
-
-        $probe->disable();
-        $probe->close(); // optional - will auto-close at end of script
-
-        return $response;
     }
 
     /**
