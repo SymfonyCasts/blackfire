@@ -15,7 +15,7 @@ class MainControllerTest extends WebTestCase
         $client = static::createClient();
 
         $blackfireConfig = (new Configuration())
-            ->assert('metrics.http.requests.vount == 1');
+            ->assert('metrics.http.requests.count == 1');
 
         $this->assertBlackfire($blackfireConfig, function() use ($client) {
             $client->request('GET', '/api/github-organization');
