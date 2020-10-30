@@ -3,6 +3,10 @@
         path: "/.*"
         assertions:
             - "metrics.http.requests.count <= 1"
+    "Pages are not suddenly *much* slower":
+        path: "/.*"
+        assertions:
+            - "percent(main.wall_time) < 30%"
 
 scenarios: |
     #!blackfire-player
