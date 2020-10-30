@@ -41,7 +41,8 @@ class BlackfireAutoProfileSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            RequestEvent::class => 'onRequestEvent',
+            // warning: adding a priority will run before routing & security
+            RequestEvent::class => ['onRequestEvent', 1000],
             TerminateEvent::class => 'onTerminateEvent',
         ];
     }
