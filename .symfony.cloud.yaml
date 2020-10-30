@@ -8,7 +8,7 @@ runtime:
         - mbstring
         - ctype
         - iconv
-        
+        - blackfire
 
 build:
     flavor: none
