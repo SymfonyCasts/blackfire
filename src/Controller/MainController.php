@@ -7,7 +7,6 @@ use App\Entity\User;
 use App\Form\AgreeToUpdatedTermsFormType;
 use App\GitHub\GitHubApiHelper;
 use App\Repository\BigFootSightingRepository;
-use Blackfire\Client;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -55,14 +54,6 @@ class MainController extends AbstractController
      */
     public function gitHubOrganizationInfo(GitHubApiHelper $apiHelper)
     {
-        // replace with some conditional logic
-        $shouldProfile = true;
-
-        if ($shouldProfile) {
-            $blackfire = new Client();
-            $probe = $blackfire->createProbe();
-        }
-
         $organizationName = 'SymfonyCasts';
         $organization = $apiHelper->getOrganizationInfo($organizationName);
         $repositories = $apiHelper->getOrganizationRepositories($organizationName);
