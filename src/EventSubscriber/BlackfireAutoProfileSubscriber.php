@@ -4,6 +4,7 @@ namespace App\EventSubscriber;
 
 use Blackfire\Client;
 use Blackfire\Probe;
+use Blackfire\Profile\Configuration;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\Event\TerminateEvent;
@@ -26,8 +27,10 @@ class BlackfireAutoProfileSubscriber implements EventSubscriberInterface
         $shouldProfile = $request->getPathInfo() === '/api/github-organization';
 
         if ($shouldProfile) {
+            $configuration = new Configuration();
+            $configuration->setTitle('Automatic GitHub org profile');
             $blackfire = new Client();
-            $this->probe = $blackfire->createProbe();
+            $this->probe = $blackfire->createProbe($configuration);
         }
     }
 
