@@ -2,3 +2,12 @@ name "Various scenarios for the site"
 
 # override with --endpoint option
 endpoint "https://localhost:8000"
+
+scenario
+    name "Basic Visit"
+
+    visit url("/")
+        name "Homepage"
+
+    click link("Log In")
+        name "Login page"
