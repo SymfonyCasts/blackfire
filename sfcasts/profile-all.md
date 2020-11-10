@@ -17,10 +17,6 @@ you want to *fully* see what's happening inside a request.
 
 ## Distributed Profiling
 
-***TIP
-Distributed profiling is available to Premium plan users or higher.
-***
-
 Another superpower of Blackfire is called distributed profiling... which you either
 won't care about... or it's the most awesome thing ever. Imagine you have a
 micro-service architecture where, when you load the page, it makes a few HTTP
