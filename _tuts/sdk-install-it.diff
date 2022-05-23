@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index 7519706..1130455 100644
+index 53f1231..af4b2d0 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -5,6 +5,7 @@
@@ -8,18 +8,18 @@ index 7519706..1130455 100644
          "ext-iconv": "*",
 +        "blackfire/php-sdk": "^1.20",
          "composer/package-versions-deprecated": "^1.11",
-         "sensio/framework-extra-bundle": "^5.4",
-         "symfony/console": "4.3.*",
+         "doctrine/annotations": "^1.0",
+         "doctrine/doctrine-bundle": "^1.6.10|^2.0",
 diff --git a/composer.lock b/composer.lock
-index a08121d..ff05bc9 100644
+index a46c732..636efc1 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,8 +4,145 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "0d5cee3803219f1246f5b00b95e71ea0",
-+    "content-hash": "76e41e6bf1b27db2c5e036b5fea394c7",
+-    "content-hash": "5501910a1fa8eaa8fb7116112fd9450b",
++    "content-hash": "aeec2bdd180d6bcbd9a2d92fb3b4049f",
      "packages": [
 +        {
 +            "name": "blackfire/php-sdk",
@@ -162,7 +162,7 @@ index a08121d..ff05bc9 100644
              "name": "composer/package-versions-deprecated",
              "version": "1.11.99",
 diff --git a/symfony.lock b/symfony.lock
-index 8c9f13d..e7d8321 100644
+index 48b90ea..523bbe5 100644
 --- a/symfony.lock
 +++ b/symfony.lock
 @@ -1,4 +1,10 @@
@@ -173,6 +173,6 @@ index 8c9f13d..e7d8321 100644
 +    "composer/ca-bundle": {
 +        "version": "1.2.4"
 +    },
-     "doctrine/annotations": {
-         "version": "1.0",
-         "recipe": {
+     "composer/package-versions-deprecated": {
+         "version": "1.11.99"
+     },
