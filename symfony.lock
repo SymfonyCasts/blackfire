@@ -1,4 +1,7 @@
 {
+    "composer/package-versions-deprecated": {
+        "version": "1.11.99"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -117,9 +120,6 @@
     "nikic/php-parser": {
         "version": "v4.2.4"
     },
-    "ocramius/package-versions": {
-        "version": "1.5.1"
-    },
     "ocramius/proxy-manager": {
         "version": "2.2.3"
     },
@@ -198,9 +198,6 @@
         "files": [
             "config/packages/dev/debug.yaml"
         ]
-    },
-    "symfony/debug-pack": {
-        "version": "v1.0.7"
     },
     "symfony/dependency-injection": {
         "version": "v4.3.4"
@@ -310,9 +307,6 @@
     "symfony/options-resolver": {
         "version": "v4.3.4"
     },
-    "symfony/orm-pack": {
-        "version": "v1.0.6"
-    },
     "symfony/phpunit-bridge": {
         "version": "4.3",
         "recipe": {
@@ -343,9 +337,6 @@
     },
     "symfony/polyfill-php73": {
         "version": "v1.12.0"
-    },
-    "symfony/profiler-pack": {
-        "version": "v1.0.4"
     },
     "symfony/property-access": {
         "version": "v4.3.4"
@@ -395,17 +386,11 @@
     "symfony/serializer": {
         "version": "v4.3.5"
     },
-    "symfony/serializer-pack": {
-        "version": "v1.0.2"
-    },
     "symfony/service-contracts": {
         "version": "v1.1.6"
     },
     "symfony/stopwatch": {
         "version": "v4.3.4"
-    },
-    "symfony/test-pack": {
-        "version": "v1.0.6"
     },
     "symfony/translation-contracts": {
         "version": "v1.1.6"
