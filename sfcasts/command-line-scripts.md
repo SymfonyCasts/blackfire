@@ -146,7 +146,7 @@ foreach ($sightingIds as $id) {
     $sighting->setScore($score);
     $sighting->setScoreLastUpdatedAt(new \DateTime());
     $this->entityManager->flush();
-    $this->entityManager->clear($sighting);
+    $this->entityManager->detach($sighting);
 }
 ```
 
